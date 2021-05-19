@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "no_teleport_cooldown",
+  "version": "${version}",
+  "name": "No Teleport Cooldown",
+  "description": "This mod removes the cooldown for things that teleport you!",
+  "authors": [
+    "SmushyTaco"
+  ],
+  "contact": {
+    "homepage": "https://www.smushytaco.com/",
+    "issues": "https://www.curseforge.com/minecraft/mc-mods/no-teleport-cooldown/issues/",
+    "sources": "https://github.com/realSmushyTaco/No-Teleport-Cooldown/"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/no_teleport_cooldown/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.no_teleport_cooldown.NoTeleportCooldown"
+      }
+    ],
+    "modmenu": [
+      "com.smushytaco.no_teleport_cooldown.configuration_support.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "no_teleport_cooldown.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.11.24",
+    "modmenu": ">=1.14.13+build.22"
+  }
+}

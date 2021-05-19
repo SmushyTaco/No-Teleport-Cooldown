@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.smushytaco.no_teleport_cooldown.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "RemoveTeleportCooldown"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
