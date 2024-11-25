@@ -1,5 +1,5 @@
 {
-  "text.autoconfig.no_teleport_cooldown.title": "No Teleport Cooldown Configuration",
-  "text.autoconfig.no_teleport_cooldown.option.isEnderPearlCooldownDisabled": "Is Ender Pearl Cooldown Disabled",
-  "text.autoconfig.no_teleport_cooldown.option.isChorusFruitCooldownDisabled": "Is Chorus Fruit Cooldown Disabled"
+  "text.config.no_teleport_cooldown.title": "No Teleport Cooldown Configuration",
+  "text.config.no_teleport_cooldown.option.isEnderPearlCooldownDisabled": "Is Ender Pearl Cooldown Disabled",
+  "text.config.no_teleport_cooldown.option.isChorusFruitCooldownDisabled": "Is Chorus Fruit Cooldown Disabled"
 }
