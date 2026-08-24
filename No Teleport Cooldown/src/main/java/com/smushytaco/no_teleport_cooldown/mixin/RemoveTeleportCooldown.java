@@ -13,10 +13,10 @@ import java.util.Map;
 @Mixin(ItemCooldowns.class)
 public abstract class RemoveTeleportCooldown {
     @WrapOperation(method = "addCooldown(Lnet/minecraft/resources/Identifier;I)V", at = @At(value = "INVOKE", target = "Ljava/util/Map;put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"))
-    private <K, V> V hookSetPut(Map<K, V> instance, K key, V value, Operation<V> original, Identifier groupId, int duration) {
-        if ((groupId != BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL) || !NoTeleportCooldown.INSTANCE.getConfig().isEnderPearlCooldownDisabled()) && (groupId != BuiltInRegistries.ITEM.getKey(Items.CHORUS_FRUIT) || !NoTeleportCooldown.INSTANCE.getConfig().isChorusFruitCooldownDisabled())) return original.call(instance, key, value);
+    private <K, V> V hookSetPut(Map<K, V> instance, K key, V value, Operation<V> original, Identifier cooldownGroup, int time) {
+        if ((cooldownGroup != BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL) || !NoTeleportCooldown.INSTANCE.getConfig().isEnderPearlCooldownDisabled()) && (cooldownGroup != BuiltInRegistries.ITEM.getKey(Items.CHORUS_FRUIT) || !NoTeleportCooldown.INSTANCE.getConfig().isChorusFruitCooldownDisabled())) return original.call(instance, key, value);
         return null;
     }
     @WrapWithCondition(method = "addCooldown(Lnet/minecraft/resources/Identifier;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemCooldowns;onCooldownStarted(Lnet/minecraft/resources/Identifier;I)V"))
-    private boolean hookSetOnCooldownUpdate(ItemCooldowns instance, Identifier groupId, int duration, Identifier groupIdTwo, int durationTwo) { return (groupIdTwo != BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL) || !NoTeleportCooldown.INSTANCE.getConfig().isEnderPearlCooldownDisabled()) && (groupIdTwo != BuiltInRegistries.ITEM.getKey(Items.CHORUS_FRUIT) || !NoTeleportCooldown.INSTANCE.getConfig().isChorusFruitCooldownDisabled()); }
+    private boolean hookSetOnCooldownUpdate(ItemCooldowns instance, Identifier cooldownGroup, int duration, @SuppressWarnings("NameDoesntMatchTargetClass") Identifier cooldownGroupTwo, int time) { return (cooldownGroupTwo != BuiltInRegistries.ITEM.getKey(Items.ENDER_PEARL) || !NoTeleportCooldown.INSTANCE.getConfig().isEnderPearlCooldownDisabled()) && (cooldownGroupTwo != BuiltInRegistries.ITEM.getKey(Items.CHORUS_FRUIT) || !NoTeleportCooldown.INSTANCE.getConfig().isChorusFruitCooldownDisabled()); }
 }
